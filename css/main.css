@@ -16,6 +16,11 @@ img.bordering {
     color: whitesmoke;
 }
 
+.titlecard {
+    font-size: 35px;
+    font-family: 'Noto Serif TC', serif;
+}
+
 .imgsize {
     width:70%;
     float: right;
