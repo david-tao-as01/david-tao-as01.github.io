@@ -60,3 +60,7 @@ img.bordering {
     text-align: center;
     width: 40%;
 }
+
+.cards {
+    display: inline-block!important;
+}
