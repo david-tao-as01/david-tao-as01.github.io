@@ -63,4 +63,5 @@ img.bordering {
 
 .cards {
     display: inline-block!important;
+    margin-bottom: 10px;
 }
