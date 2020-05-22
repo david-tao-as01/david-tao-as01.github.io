@@ -66,8 +66,6 @@ img.bordering {
     margin-bottom: 10px;
 }
 
-.backtotop {
-    -webkit-transition: 1s;
-	-moz-transition: 1s;
-	transition: 1s;
+.toleft {
+    text-align: left;
 }
