@@ -65,3 +65,9 @@ img.bordering {
     display: inline-block!important;
     margin-bottom: 10px;
 }
+
+.backtotop {
+    -webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}

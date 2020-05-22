@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,17 +8,18 @@
     <title>David Tao's personal page</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/imghover.css">
-    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/proxy/MOKnyofNSF4tHf2YQkcQCg2IEBDQPBVDgHrjN5Q1yR9jsndGyhP-Ne00qNfTwMB8gAx3UDcreY5BUPRZVDXChIkh4tLvojz9krt3">
+    <link rel="icon" type="image/png" href="./imgs/unnamed.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Caveat:wght@700&family=Dancing+Script:wght@700&family=Kanit:ital,wght@1,900&family=Noto+Serif+TC:wght@900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Balsamiq+Sans&family=Caveat:wght@700&family=Dancing+Script:wght@700&family=Kanit:ital,wght@1,900&family=Noto+Serif+TC:wght@900&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         * {font-family: 'Balsamiq Sans', cursive;}
     </style>
 </head>
-<body style="background-image: url(./imgs/inside_eye.jpg); background-size: cover; background-position: unset">
+<body style="background-image: url(./imgs/inside_eye.jpg); background-size: cover; background-position: unset;">
     <nav>
         <div class="nav nav-tabs fixed-top" id="nav-tab" role="tablist" style="background-color: #d8e6dc; box-shadow: darkgray 0px 10px 10px;">
             <a style="font-family: 'Kanit', sans-serif;margin-right: 3px;margin-left: 6px;font-size: 25px;color: #1a1a1a;text-decoration: none;" href="#">David Tao</a>
@@ -30,7 +31,7 @@
     </nav>
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <div style="height: 40px"></div>
+            <div id="top" style="height: 40px"></div>
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" style="box-shadow: grey 0px 20px 16px;">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -41,7 +42,7 @@
                     <div class="carousel-item active">
                         <div class="d-none d-md-block imgmargin">
                             <h1 style="font-size: 4rem;font-family: 'Noto Serif TC', serif;">David Tao</h1>
-                            <h3 style="font-size: 3rem;font-family: 'Playfair Display', serif;">A boy who addicted to meteorology.</h3>
+                            <h3 style="font-size: 2.5rem;font-family: 'Bad Script', cursive;">A boy who addicted to meteorology.</h3>
                         </div>
                         <img src="./imgs/CST_8823.JPG" class="d-block w-100" alt="...">
                     </div>
@@ -49,14 +50,14 @@
                         <img src="./imgs/CST_8880.JPG" class="d-block w-100" alt="..." style="filter: brightness(0.8);">
                         <div class="d-none d-md-block imgmargin2" >
                             <h1 style="font-size: 3rem;font-family: 'Noto Serif TC', serif;">Weather, Coding, and Singing.</h1>
-                            <h3 style="font-size: 2rem;font-family: 'Playfair Display', serif;">Three important things in my life.</h3>
+                            <h3 style="font-size: 2rem;font-family: 'Bad Script', cursive;">Three important things in my life.</h3>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="./imgs/CST_8901.JPG" class="d-block w-100" alt="..." style="filter: brightness(0.8);">
                         <div class="d-none d-md-block imgmargin">
-                            <h1 style="font-size: 3.5rem;font-family: 'Noto Serif TC', serif;">Only actions truly speak.</h1>
-                            <h3 style="font-size: 2.5rem;font-family: 'Playfair Display', serif;">That's the way I live.</h3>
+                            <h1 style="font-size: 3.5rem;font-family: 'Noto Serif TC', serif;">Only actions truly speak.</h1><br>
+                            <h3 style="font-size: 2rem;font-family: 'Bad Script', cursive;">That's the way I live.</h3>
                         </div>
                     </div>
                 </div>
@@ -139,9 +140,9 @@
                         <div class="card-body">
                             <h2 class="card-title" style="font-family: 'Noto Serif TC', serif;">Discussion on thermal equilibrium models.</h2>
                             <br><br>
-                            <h4 class="card-text">The final assignment of The introduction of Atmospheric Sciences.<br><br>
+                            <h5 class="card-text">The final assignment of The introduction of Atmospheric Sciences.<br><br>
                                 Done by me and the other two group members De-Yu OU and Rex Hsiao.<br><br>
-                                Using Python to find the temperature and the intensity of the outward long wave radiation when reached the themeral equilibrium, and find out their variation when changing the albedo of all layers.</h4>
+                                Using Python to find the temperature and the intensity of the outward long wave radiation when reached the themeral equilibrium, and find out their variation when changing the albedo of all layers.</h5>
                             <p class="card-text"><small class="text-muted"><script>var d = new Date(),ld = new Date(2020,4,31);document.write('Last updated ' + ((d.getTime() - ld.getTime()) / 1000 / 60 / 60 / 24).toString().slice(0,-13) + ' days ago.')</script></small></p>
                         </div>
                     </div>
@@ -157,9 +158,9 @@
                         <div class="card-body">
                             <h2 class="card-title" style="font-family: 'Noto Serif TC', serif;">Tropical cyclone analysing</h2>
                             <br><br>
-                            <h4 class="card-text">Using Python to read GFS analyzed data and trying to analyze how the environment around the tropical cyclone affect its growth by doing the overlay analyzes with plotting them on the same figure.<br>
+                            <h5 class="card-text">Using Python to read GFS analyzed data and trying to analyze how the environment around the tropical cyclone affect its growth by doing the overlay analyzes with plotting them on the same figure.<br>
                                 <br>The first figure compared the surface sea temperature (SST) and the intensity of the Tropical cyclone.
-                                <br><br>The second figure showed the wind direction and intensity on the North-Western Pacific Ocean.</h4>
+                                <br><br>The second figure showed the wind direction and intensity on the North-Western Pacific Ocean.</h5>
                             <p class="card-text"><small class="text-muted"><script>var d = new Date(),ld = new Date(2020,4,31);document.write('Last updated ' + ((d.getTime() - ld.getTime()) / 1000 / 60 / 60 / 24).toString().slice(0,-13) + ' days ago.')</script></small></p>
                         </div>
                     </div>
@@ -175,7 +176,7 @@
                         <div class="card-body">
                             <h2 class="card-title" style="font-family: 'Noto Serif TC', serif;">2019 Taiwan president election webcrawling</h2>
                             <br><br>
-                            <h4 class="card-text">Using python to crawl the votes every three seconds from Central Eletion Comission and plot a votes-time diagram.</h4>
+                            <h5 class="card-text">Using python to crawl the votes every three seconds from Central Eletion Comission and plot a votes-time diagram.</h5>
                             <p class="card-text"><small class="text-muted"><script>var d = new Date(),ld = new Date(2020,4,31);document.write('Last updated ' + ((d.getTime() - ld.getTime()) / 1000 / 60 / 60 / 24).toString().slice(0,-13) + ' days ago.')</script></small></p>
                         </div>
                     </div>
@@ -191,7 +192,7 @@
                         <div class="card-body">
                             <h2 class="card-title" style="font-family: 'Noto Serif TC', serif;">Volunteer</h2>
                             <br><br>
-                            <h4 class="card-text">Serving as a child leader in Awana Club at Taipei International Church (2018.09 - 2019.06)</h4>
+                            <h5 class="card-text">Serving as a child leader in Awana Club at Taipei International Church (2018.09 - 2019.06)</h5>
                             <p class="card-text"><small class="text-muted"><script>var d = new Date(),ld = new Date(2020,4,31);document.write('Last updated ' + ((d.getTime() - ld.getTime()) / 1000 / 60 / 60 / 24).toString().slice(0,-13) + ' days ago.')</script></small></p>
                         </div>
                     </div>
@@ -238,17 +239,18 @@
             </div>
             <br><br>
             <h2 style="font-family: 'Playfair Display', serif;color: whitesmoke">Or... Send me an e-mail to 'b08209001@ntu.edu.tw'</h2>
-            <div style="height: 42px;"></div>
+            <div style="height: 75px;"></div>
         </div>
     </div>
-    <nav class="navbar navbar-light fixed-bottom" style="background-color: #bce8f1;padding: inherit;">
-        <a href="#" style=" font-size: 7px; color:black; margin-left: 5px ;text-decoration: none;font-family: 'Playfair Display', serif;">Copyright © David Tao 2020<br>All rights reserved | Made by Bootstrap</a>
-        <a class="navbar-brand" href="#">Back to top
+    <nav class="navbar navbar-light" style="background-color: #bce8f1;padding: inherit;z-index: 10">
+        <a id="back2top" class="backtotop" href="#" style=" font-size: 7px; color:black; margin-left: 5px ;text-decoration: none;font-family: 'Playfair Display', serif;">Copyright © David Tao 2020<br>All rights reserved | Made by Bootstrap</a>
+        <a id="back2top" class="navbar-brand backtotop" href="#">Back to top
             <svg class="bi bi-arrow-bar-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M11.354 5.854a.5.5 0 000-.708l-3-3a.5.5 0 00-.708 0l-3 3a.5.5 0 10.708.708L8 3.207l2.646 2.647a.5.5 0 00.708 0z" clip-rule="evenodd"/>
                 <path fill-rule="evenodd" d="M8 10a.5.5 0 00.5-.5V3a.5.5 0 00-1 0v6.5a.5.5 0 00.5.5zm-4.8 1.6c0-.22.18-.4.4-.4h8.8a.4.4 0 010 .8H3.6a.4.4 0 01-.4-.4z" clip-rule="evenodd"/>
             </svg>
         </a>
     </nav>
+
 </body>
 </html>
