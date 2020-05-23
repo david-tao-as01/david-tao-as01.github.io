@@ -20,7 +20,7 @@
     </style>
 </head>
 <body style="background-image: url(./imgs/inside_eye.jpg); background-size: cover; background-position: unset;">
-    <video autoplay loop muted playsinline src="./imgs/In-The-Clouds.mp4" style="position: fixed;display: inline-block;z-index: -1;" align="bottom"></video>
+    <video autoplay loop muted playsinline src="./imgs/In-The-Clouds.mp4" style="position: fixed;display: inline-block;z-index: -1;" align="right"></video>
     <nav>
         <div class="nav nav-tabs fixed-top" id="nav-tab" role="tablist" style="background-color: #d8e6dc; box-shadow: darkgray 0px 10px 10px;">
             <a style="font-family: 'Kanit', sans-serif;margin-right: 3px;margin-left: 6px;font-size: 25px;color: #1a1a1a;text-decoration: none;" href="#">David Tao</a>
@@ -73,7 +73,7 @@
             </div>
             <div style="height: 40px"></div>
             <div>
-                <ul style="font-size: 80px;font-family: 'Dancing Script', cursive;color: darkslategray;">About me</ul>
+                <ul style="font-size: 80px;font-family: 'Dancing Script', cursive;color: #4c2100;">About me</ul>
                 <div class="card cardmargin">
                     <div class="card-header titlecard">Introduction</div>
                     <div class="card-body">
@@ -132,69 +132,41 @@
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" align="center">
             <div style="height: 60px"></div>
             <h1 class="titlewording">My Projects</h1>
-            <div class="card mb-3 cardmargin">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="./imgs/1.jpg" class="card-img bordering" alt="...">
+                <div style="">
+                    <div class="Container">
+                        <img src="./imgs/1.jpg" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text">Meteorology researching
+                                <h5 style="font-size: 20px">Group presentation with modeling the result of thermal equilibrium by python model.</h5>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h2 class="card-title" style="font-family: 'Noto Serif TC', serif;">Discussion on thermal equilibrium models.</h2>
-                            <br><br>
-                            <h5 class="card-text toleft">The final assignment of The introduction of Atmospheric Sciences.<br><br>
-                                Done by me and the other two group members De-Yu OU and Rex Hsiao.<br><br>
-                                Using Python to find the temperature and the intensity of the outward long wave radiation when reached the themeral equilibrium, and find out their variation when changing the albedo of all layers.</h5>
-                            <p class="card-text"><small class="text-muted"><script>var d = new Date(),ld = new Date(2020,4,31);document.write('Last updated ' + ((d.getTime() - ld.getTime()) / 1000 / 60 / 60 / 24).toString().slice(0,-13) + ' days ago.')</script></small></p>
+                    <div class="Container">
+                        <img src="./imgs/2019-10-22T09:48:09+08:00_Typhoon_BUALOI_forecasting_track_with_SST.png" alt="Avatar" class="image">
+                        <img src="./imgs/2019-10-22T09:48:09+08:00_Typhoon_BUALOI_forecasting_track_with_wind_speed.png" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text">Data analyzing
+                                <h5 style="font-size: 20px">Using raw data from open weather data platform.</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Container">
+                        <img src="./imgs/截圖%202020-05-20%20下午5.50.30.png" alt="Avatar" class="image">
+                        <img src="./imgs/2020_Taiwan_Presedent_Election_Votes_Changes.png" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text">Web crawling
+                                <h5 style="font-size: 20px">Crawling the Votes from CEC during 2019 Taiwan president election.</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card mb-3 cardmargin">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="./imgs/2019-10-22T09:48:09+08:00_Typhoon_BUALOI_forecasting_track_with_SST.png" class="card-img bordering" alt="...">
-                        <img src="./imgs/2019-10-22T09:48:09+08:00_Typhoon_BUALOI_forecasting_track_with_wind_speed.png" class="card-img bordering" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h2 class="card-title" style="font-family: 'Noto Serif TC', serif;">Tropical cyclone analysing</h2>
-                            <br><br>
-                            <h5 class="card-text toleft">Using Python to read GFS analyzed data and trying to analyze how the environment around the tropical cyclone affect its growth by doing the overlay analyzes with plotting them on the same figure.<br>
-                                <br>The first figure compared the surface sea temperature (SST) and the intensity of the Tropical cyclone.
-                                <br><br>The second figure showed the wind direction and intensity on the North-Western Pacific Ocean.</h5>
-                            <p class="card-text"><small class="text-muted"><script>var d = new Date(),ld = new Date(2020,4,31);document.write('Last updated ' + ((d.getTime() - ld.getTime()) / 1000 / 60 / 60 / 24).toString().slice(0,-13) + ' days ago.')</script></small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3 cardmargin">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="./imgs/截圖%202020-05-20%20下午5.50.30.png" class="card-img bordering" alt="...">
-                        <img src="./imgs/2020_Taiwan_Presedent_Election_Votes_Changes.png" class="card-img bordering" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h2 class="card-title" style="font-family: 'Noto Serif TC', serif;">2019 Taiwan president election webcrawling</h2>
-                            <br><br>
-                            <h5 class="card-text toleft">Using python to crawl the votes every three seconds from Central Eletion Comission and plot a votes-time diagram.</h5>
-                            <p class="card-text"><small class="text-muted"><script>var d = new Date(),ld = new Date(2020,4,31);document.write('Last updated ' + ((d.getTime() - ld.getTime()) / 1000 / 60 / 60 / 24).toString().slice(0,-13) + ' days ago.')</script></small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <h1 class="titlewording">Other Activities</h1>
-            <div class="card mb-3 cardmargin">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="./imgs/新檔案%202019-03-24%2012.59.19_2.jpg" class="card-img bordering" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h2 class="card-title" style="font-family: 'Noto Serif TC', serif;">Volunteer</h2>
-                            <br><br>
-                            <h5 class="card-text toleft">Serving as a child leader in Awana Club at Taipei International Church (2018.09 - 2019.06)</h5>
-                            <p class="card-text"><small class="text-muted"><script>var d = new Date(),ld = new Date(2020,4,31);document.write('Last updated ' + ((d.getTime() - ld.getTime()) / 1000 / 60 / 60 / 24).toString().slice(0,-13) + ' days ago.')</script></small></p>
+            <div style="">
+                <div class="Container">
+                    <img src="./imgs/新檔案%202019-03-24%2012.59.19_2.jpg" alt="Avatar" class="image">
+                    <div class="overlay">
+                        <div class="text">Being a volunteer
+                            <h5 style="font-size: 20px">Since 2018.08 - 2019.06 in Awana club.</h5>
                         </div>
                     </div>
                 </div>
@@ -239,7 +211,7 @@
                 </div>
             </div>
             <br><br>
-            <h2 style="font-family: 'Playfair Display', serif;color: darkslategray">Or... Send me an e-mail to 'b08209001@ntu.edu.tw'</h2>
+            <h2 style="font-family: 'Playfair Display', serif;color: #4c2100">Or... Send me an e-mail to 'b08209001@ntu.edu.tw'</h2>
             <div style="height: 75px;"></div>
         </div>
     </div>
