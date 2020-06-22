@@ -11,6 +11,9 @@ $(document).ready(function () {
             $('#questext').load('./questions/question' + q.toString() + '.xml');
             q++;
         } else {
+            if (q == questions + 1) {
+                $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+            };
             $('#questext').empty();
             $('#starttext').html(function () {
                 if ($('#whiteboard').text() <= 30) {
@@ -41,6 +44,9 @@ $(document).ready(function () {
             $('#questext').load('./questions/question' + q.toString() + '.xml');
             q++;
         } else {
+            if (q == questions + 1) {
+                $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+            };
             $('#questext').empty();
             $('#starttext').html(function () {
                 if ($('#whiteboard').text() <= 30) {
@@ -71,6 +77,9 @@ $(document).ready(function () {
             $('#questext').load('./questions/question' + q.toString() + '.xml');
             q++;
         } else {
+            if (q == questions + 1) {
+                $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+            };
             $('#questext').empty();
             $('#starttext').html(function () {
                 if ($('#whiteboard').text() <= 30) {
@@ -101,6 +110,9 @@ $(document).ready(function () {
             $('#questext').load('./questions/question' + q.toString() + '.xml');
             q++;
         } else {
+            if (q == questions + 1) {
+                $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+            };
             $('#questext').empty();
             $('#starttext').html(function () {
                 if ($('#whiteboard').text() <= 30) {
