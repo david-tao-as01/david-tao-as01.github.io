@@ -1,0 +1,129 @@
+body {
+    background-image: url(../imgs/tornado.jpg);
+    background-size: 190vh;
+    height: 100vh;
+    background-position: center;
+    text-align: center;
+    margin: 0px;
+}
+
+#question_back {
+    width:90%;
+    height:60%;
+    background-color: #005300;
+    margin: auto;
+    margin-top: 3%;
+    border-radius: 20px;
+    border-color: saddlebrown;
+    border-style: solid;
+    border-width: 10px;
+    text-align: left;
+}
+
+#answer_back {
+    width: 90%;
+    height: 20%;
+    margin: auto;
+    margin-top: 3%;
+    background-color: deepskyblue;
+    border-radius: 20px;
+    border-color: saddlebrown;
+    border-style: solid;
+    border-width: 10px;
+}
+
+.rows {
+    margin: auto;
+    width: 80%;
+    height: 50%;
+}
+
+.ansblock {
+    margin-top: 0.7vh;
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 40%;
+    height: 80%;
+    display: inline-block;
+    border-radius: 10px;
+    border-color: cyan;
+    border-width: 3px;
+    border-style: dashed;
+}
+
+.ansblock:hover {
+    border-style: solid;
+    background-color: mediumslateblue;
+}
+
+.ansblock:active {
+    border-style: solid;
+    background-color: darkred;
+}
+
+.anstext {
+    font-size: 5vh;
+    margin: auto;
+}
+
+#whiteboard {
+    background-image: url(../imgs/whiteboard.png);
+    width: 9.7rem;
+    height: 6.5rem;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    text-decoration: underline;
+    color: red;
+    font-size: 400%;
+    font-style: italic;
+}
+
+#questext {
+    display: inline-block;
+    width: 61.6%;
+    height: 100%;
+    margin-right: 10%;
+    margin-left: 10%;
+    color: white;
+}
+
+#starttext {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 320%;
+    margin-top: 3%;
+}
+
+.titletext {
+    margin: 0%;
+}
+
+#bottomline {
+    font-family: 'Noto Serif TC', serif;
+    background-color: darkgoldenrod;
+    width: 100%;
+    height: 6%;
+    bottom: 0px;
+    position: fixed;
+    text-align: center;
+}
+
+.footertext {
+    margin: auto;
+    height: 50%;
+    font-size: 2vh;
+    font-family: 'Noto Serif TC', serif;
+}
+
+#Ben {
+    text-decoration: unset;
+}
+
+#Ben:hover {
+    color: #337ab7;
+}
