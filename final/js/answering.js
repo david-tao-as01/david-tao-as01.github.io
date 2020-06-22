@@ -13,6 +13,7 @@ $(document).ready(function () {
         } else {
             if (q == questions + 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                q++;
             };
             $('#questext').empty();
             $('#starttext').html(function () {
@@ -46,6 +47,7 @@ $(document).ready(function () {
         } else {
             if (q == questions + 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                q++;
             };
             $('#questext').empty();
             $('#starttext').html(function () {
@@ -72,6 +74,7 @@ $(document).ready(function () {
             $('#starttext').empty();
             if (q != 1 && Number($('#answercode').text()) == 3) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                q++;
             };
             $('#questext').empty();
             $('#questext').load('./questions/question' + q.toString() + '.xml');
@@ -105,6 +108,7 @@ $(document).ready(function () {
             $('#starttext').empty();
             if (q != 1 && Number($('#answercode').text()) == 4) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                q++;
             };
             $('#questext').empty();
             $('#questext').load('./questions/question' + q.toString() + '.xml');
