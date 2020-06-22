@@ -1,14 +1,28 @@
 $(document).ready(function () {
     var q = 1;
     var questions = 10;
+    var difficulty
+    $('#senior').click(function () {
+        difficulty = 'easy'
+        $('#starttext').empty();
+        $('#questext').empty();
+        $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
+        q++
+            })
+    $('#bachelor').click(function () {
+        difficulty = 'hard'
+        $('#starttext').empty();
+        $('#questext').empty();
+        $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
+        q++
+            })
     $('#A').click(function () {
         if (q <= questions) {
-            $('#starttext').empty();
             if (q != 1 && Number($('#answercode').text()) == 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
             $('#questext').empty();
-            $('#questext').load('./questions/easy/question' + q.toString() + '.xml');
+            $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             q++;
         } else {
             if (q == questions + 1) {
@@ -37,12 +51,11 @@ $(document).ready(function () {
 
     $('#B').click(function () {
         if (q <= questions) {
-            $('#starttext').empty();
             if (q != 1 && Number($('#answercode').text()) == 2) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
             $('#questext').empty();
-            $('#questext').load('./questions/easy/question' + q.toString() + '.xml');
+            $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             q++;
         } else {
             if (q == questions + 1) {
@@ -71,12 +84,11 @@ $(document).ready(function () {
 
     $('#C').click(function () {
         if (q <= questions) {
-            $('#starttext').empty();
             if (q != 1 && Number($('#answercode').text()) == 3) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
             $('#questext').empty();
-            $('#questext').load('./questions/easy/question' + q.toString() + '.xml');
+            $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             q++;
         } else {
             if (q == questions + 1) {
@@ -105,12 +117,11 @@ $(document).ready(function () {
 
     $('#D').click(function () {
         if (q <= questions) {
-            $('#starttext').empty();
             if (q != 1 && Number($('#answercode').text()) == 4) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
             $('#questext').empty();
-            $('#questext').load('./questions/easy/question' + q.toString() + '.xml');
+            $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             q++;
         } else {
             if (q == questions + 1) {
