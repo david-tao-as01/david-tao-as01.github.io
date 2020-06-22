@@ -8,7 +8,7 @@ $(document).ready(function () {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
             $('#questext').empty();
-            $('#questext').load('./questions/question' + q.toString() + '.xml');
+            $('#questext').load('./questions/easy/question' + q.toString() + '.xml');
             q++;
         } else {
             if (q == questions + 1) {
@@ -42,7 +42,7 @@ $(document).ready(function () {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
             $('#questext').empty();
-            $('#questext').load('./questions/question' + q.toString() + '.xml');
+            $('#questext').load('./questions/easy/question' + q.toString() + '.xml');
             q++;
         } else {
             if (q == questions + 1) {
@@ -76,7 +76,7 @@ $(document).ready(function () {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
             $('#questext').empty();
-            $('#questext').load('./questions/question' + q.toString() + '.xml');
+            $('#questext').load('./questions/easy/question' + q.toString() + '.xml');
             q++;
         } else {
             if (q == questions + 1) {
@@ -110,7 +110,7 @@ $(document).ready(function () {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
             $('#questext').empty();
-            $('#questext').load('./questions/question' + q.toString() + '.xml');
+            $('#questext').load('./questions/easy/question' + q.toString() + '.xml');
             q++;
         } else {
             if (q == questions + 1) {
