@@ -136,3 +136,11 @@ body {
     margin-left: 30px;
     font-size: 5vh;
 }
+
+.btnstart:hover {
+    background-color: gray;
+}
+
+.btnstart:active {
+    background-color:dimgrey;
+}

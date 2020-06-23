@@ -23,7 +23,9 @@ $(document).ready(function () {
             };
             $('#questext').empty();
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
-            q++;
+            if (q > 1) {
+                q++;
+            }
         } else {
             if (q == questions + 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
@@ -56,7 +58,9 @@ $(document).ready(function () {
             };
             $('#questext').empty();
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
-            q++;
+            if (q > 1) {
+                q++;
+            }
         } else {
             if (q == questions + 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
@@ -89,7 +93,9 @@ $(document).ready(function () {
             };
             $('#questext').empty();
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
-            q++;
+            if (q > 1) {
+                q++;
+            }
         } else {
             if (q == questions + 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
@@ -122,7 +128,9 @@ $(document).ready(function () {
             };
             $('#questext').empty();
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
-            q++;
+            if (q > 1) {
+                q++;
+            }
         } else {
             if (q == questions + 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
