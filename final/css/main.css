@@ -135,7 +135,8 @@ body {
     border-radius: 20px;
     margin-right: 30px;
     margin-left: 30px;
-    font-size: 5vh;
+    font-size: 3.5vh;
+    background-color: whitesmoke;
 }
 
 .btnstart:hover {
