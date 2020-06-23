@@ -5,14 +5,12 @@ $(document).ready(function () {
     $('#senior').click(function () {
         difficulty = 'easy'
         $('#starttext').empty();
-        $('#questext').empty();
         $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
         q++
             })
     $('#bachelor').click(function () {
         difficulty = 'hard'
         $('#starttext').empty();
-        $('#questext').empty();
         $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
         q++
             })
@@ -21,7 +19,6 @@ $(document).ready(function () {
             if (q != 1 && Number($('#answercode').text()) == 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
-            $('#questext').empty();
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             if (q > 1) {
                 q++;
@@ -56,7 +53,6 @@ $(document).ready(function () {
             if (q != 1 && Number($('#answercode').text()) == 2) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
-            $('#questext').empty();
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             if (q > 1) {
                 q++;
@@ -91,7 +87,6 @@ $(document).ready(function () {
             if (q != 1 && Number($('#answercode').text()) == 3) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
-            $('#questext').empty();
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             if (q > 1) {
                 q++;
@@ -126,7 +121,6 @@ $(document).ready(function () {
             if (q != 1 && Number($('#answercode').text()) == 4) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
             };
-            $('#questext').empty();
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             if (q > 1) {
                 q++;
