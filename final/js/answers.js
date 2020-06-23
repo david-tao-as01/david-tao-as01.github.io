@@ -24,7 +24,7 @@ $(document).ready(function () {
                 q++;
             }
         } else {
-            if (q == questions + 1) {
+            if (q == questions + 1 && Number($('#answercode').text()) == 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
                 q++;
             };
@@ -58,7 +58,7 @@ $(document).ready(function () {
                 q++;
             }
         } else {
-            if (q == questions + 1) {
+            if (q == questions + 1 && Number($('#answercode').text()) == 2) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
                 q++;
             };
@@ -92,7 +92,7 @@ $(document).ready(function () {
                 q++;
             }
         } else {
-            if (q == questions + 1) {
+            if (q == questions + 1 && Number($('#answercode').text()) == 3) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
                 q++;
             };
@@ -126,7 +126,7 @@ $(document).ready(function () {
                 q++;
             }
         } else {
-            if (q == questions + 1) {
+            if (q == questions + 1 && Number($('#answercode').text()) == 4) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
                 q++;
             };
