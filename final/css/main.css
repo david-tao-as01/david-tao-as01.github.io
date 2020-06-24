@@ -98,6 +98,8 @@ body {
     text-align: center;
     font-size: 320%;
     margin-top: 3%;
+    height:50%;
+    border-radius: 5%;
 }
 
 .titletext {
@@ -148,6 +150,7 @@ body {
 }
 
 .powered {
-    display: inline-block;
+    display: inline-table;
     width: 30%;
+    top: 0px;
 }
