@@ -146,3 +146,8 @@ body {
 .btnstart:active {
     background-color:dimgrey;
 }
+
+.powered {
+    display: inline-block;
+    width: 30%;
+}
