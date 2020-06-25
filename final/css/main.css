@@ -90,6 +90,7 @@ body {
     height: 100%;
     margin-left: 10%;
     color: white;
+    overflow: auto;
 }
 
 #starttext {
