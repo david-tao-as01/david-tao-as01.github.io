@@ -63,6 +63,8 @@ $(document).ready(function () {
         if (q <= questions) {
             if (q != 1 && Number($('#answercode').text()) == 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.pause();
+                bingo.currentTime = 0;
                 bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
@@ -100,6 +102,8 @@ $(document).ready(function () {
             );
             if (q == questions + 1 && Number($('#answercode').text()) == 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.pause();
+                bingo.currentTime = 0;
                 bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
@@ -169,6 +173,8 @@ $(document).ready(function () {
         if (q <= questions) {
             if (q != 1 && Number($('#answercode').text()) == 2) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.pause();
+                bingo.currentTime = 0;
                 bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
@@ -207,6 +213,8 @@ $(document).ready(function () {
             );
             if (q == questions + 1 && Number($('#answercode').text()) == 2) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.pause();
+                bingo.currentTime = 0;
                 bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
@@ -276,6 +284,8 @@ $(document).ready(function () {
         if (q <= questions) {
             if (q != 1 && Number($('#answercode').text()) == 3) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.pause();
+                bingo.currentTime = 0;
                 bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
@@ -314,6 +324,8 @@ $(document).ready(function () {
             );
             if (q == questions + 1 && Number($('#answercode').text()) == 3) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.pause();
+                bingo.currentTime = 0;
                 bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
@@ -380,6 +392,8 @@ $(document).ready(function () {
         if (q <= questions) {
             if (q != 1 && Number($('#answercode').text()) == 4) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.pause();
+                bingo.currentTime = 0;
                 bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
@@ -417,6 +431,8 @@ $(document).ready(function () {
             );
             if (q == questions + 1 && Number($('#answercode').text()) == 4) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.pause();
+                bingo.currentTime = 0;
                 bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
