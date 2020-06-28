@@ -1,26 +1,69 @@
 $(document).ready(function () {
     var q = 1;
     var questions = 10;
-    var difficulty
+    var difficulty,v,interval = ' ',min = 0,sec = 0;
+    var bingo = new Audio('./sounds/crrect_answer3.mp3')
+    var wrong = new Audio('./sounds/blip04.mp3')
+    var ending = new Audio('./sounds/Silly Intro.mp3')
+    ending.loop = true
+
+    function counting() {
+        if (sec < 10 && min < 10) {
+            $('#timing').text('作答時間 0' + min + interval + '0' + Math.floor(sec));
+        } else if (sec >= 10 && min < 10) {
+            $('#timing').text('作答時間 0' + min + interval + Math.floor(sec));
+        } else if (sec < 10 && min >= 10) {
+            $('#timing').text('作答時間 ' + min + interval + '0' + Math.floor(sec));
+        } else {
+            $('#timing').text('作答時間 ' + min + interval + Math.floor(sec));
+        };
+
+        if (Math.floor(sec) != sec) {
+            interval = ' '
+        } else {
+            interval = ':'
+        }
+
+        sec += 0.5;
+        if (sec == 60) {
+            sec = 0;
+            min++;
+        }
+        if (q > 1 && q <= questions) {
+            setTimeout(counting,500);
+        };
+    };
+
     $('#senior').click(function () {
-        difficulty = 'easy'
+        v = new Audio('./sounds/Magic in the Garden.mp3');
+        v.loop = true;
+        v.play();
+        difficulty = 'easy';
+        $('#whiteboard').css('display','inline-block');
         $('#starttext').empty();
-        $('#starttext').css('display', 'none')
+        $('#starttext').css('display', 'none');
         $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
-        q++
+        q++;
+        counting()
     });
     $('#bachelor').click(function () {
-        difficulty = 'hard'
+        v = new Audio('./sounds/Find Them.mp3');
+        v.loop = true;
+        v.play();
+        difficulty = 'hard';
+        $('#whiteboard').css('display','inline-block');
         $('#starttext').empty();
-        $('#starttext').css('display', 'none')
+        $('#starttext').css('display', 'none');
         $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
-        q++
+        q++;
+        counting()
     });
 
     $('#A').click(function () {
         if (q <= questions) {
             if (q != 1 && Number($('#answercode').text()) == 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/bingo.png" alt="bingo">' +
@@ -31,6 +74,7 @@ $(document).ready(function () {
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
             } else if (q != 1 && Number($('#answercode').text()) != 1) {
+                wrong.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/wrong.png" alt="wrong">' +
@@ -40,14 +84,23 @@ $(document).ready(function () {
                 $('.correcting').css('background-color','#ff0000');
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
+                wrong.play();
             };
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             if (q > 1) {
                 q++;
             }
         } else {
+            v.pause();
+            ending.play();
+            $('#timing').empty();
+            $('#timing').css('top','35%');
+            $('#timing').html(
+                '本次作答時間為: <br>' + min + '分' + Math.floor(sec) + '秒'
+            );
             if (q == questions + 1 && Number($('#answercode').text()) == 1) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/bingo.png" alt="bingo">' +
@@ -59,6 +112,7 @@ $(document).ready(function () {
                 $('#starttext').fadeOut(1000);
                 q++;
             } else if (q == questions + 1 && Number($('#answercode').text()) != 1) {
+                wrong.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/wrong.png" alt="wrong">' +
@@ -68,6 +122,8 @@ $(document).ready(function () {
                 $('.correcting').css('background-color','#ff0000');
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
+                wrong.play();
+                q++;
             };
             $('#questext').empty();
             $('#endtext').html(function () {
@@ -104,8 +160,8 @@ $(document).ready(function () {
                 }
                 ;
             });
-            $('#endtext').fadeIn();
-            $('#whiteboard').css('visibility', 'hidden')
+            $('#whiteboard').css('visibility', 'hidden');
+            setTimeout($('#endtext').fadeIn(),2000);
         }
     });
 
@@ -113,6 +169,7 @@ $(document).ready(function () {
         if (q <= questions) {
             if (q != 1 && Number($('#answercode').text()) == 2) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/bingo.png" alt="bingo">' +
@@ -123,6 +180,7 @@ $(document).ready(function () {
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
             } else if (q != 1 && Number($('#answercode').text()) != 2) {
+                wrong.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/wrong.png" alt="wrong">' +
@@ -132,6 +190,7 @@ $(document).ready(function () {
                 $('.correcting').css('background-color','#ff0000');
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
+                wrong.play();
             }
             ;
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
@@ -139,8 +198,16 @@ $(document).ready(function () {
                 q++;
             }
         } else {
+            v.pause();
+            ending.play();
+            $('#timing').empty();
+            $('#timing').css('top','35%');
+            $('#timing').html(
+                '本次作答時間為: <br>' + min + '分' + Math.floor(sec) + '秒'
+            );
             if (q == questions + 1 && Number($('#answercode').text()) == 2) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/bingo.png" alt="bingo">' +
@@ -152,6 +219,7 @@ $(document).ready(function () {
                 $('#starttext').fadeOut(1000);
                 q++;
             } else if (q == questions + 1 && Number($('#answercode').text()) != 2) {
+                wrong.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/wrong.png" alt="wrong">' +
@@ -161,6 +229,8 @@ $(document).ready(function () {
                 $('.correcting').css('background-color','#ff0000');
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
+                wrong.play();
+                q++;
             };
             $('#questext').empty();
             $('#endtext').html(function () {
@@ -197,8 +267,8 @@ $(document).ready(function () {
                 }
                 ;
             });
-            $('#endtext').fadeIn();
-            $('#whiteboard').css('visibility', 'hidden')
+            $('#whiteboard').css('visibility', 'hidden');
+            setTimeout($('#endtext').fadeIn(),2000);
         }
     });
 
@@ -206,6 +276,7 @@ $(document).ready(function () {
         if (q <= questions) {
             if (q != 1 && Number($('#answercode').text()) == 3) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/bingo.png" alt="bingo">' +
@@ -216,6 +287,7 @@ $(document).ready(function () {
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
             } else if (q != 1 && Number($('#answercode').text()) != 3) {
+                wrong.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/wrong.png" alt="wrong">' +
@@ -225,6 +297,7 @@ $(document).ready(function () {
                 $('.correcting').css('background-color','#ff0000');
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
+                wrong.play();
             }
             ;
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
@@ -232,8 +305,16 @@ $(document).ready(function () {
                 q++;
             };
         } else {
+            v.pause();
+            ending.play();
+            $('#timing').empty();
+            $('#timing').css('top','35%');
+            $('#timing').html(
+                '本次作答時間為: <br>' + min + '分' + Math.floor(sec) + '秒'
+            );
             if (q == questions + 1 && Number($('#answercode').text()) == 3) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/bingo.png" alt="bingo">' +
@@ -245,6 +326,7 @@ $(document).ready(function () {
                 $('#starttext').fadeOut(1000);
                 q++;
             } else if (q == questions + 1 && Number($('#answercode').text()) != 3) {
+                wrong.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/wrong.png" alt="wrong">' +
@@ -254,6 +336,8 @@ $(document).ready(function () {
                 $('.correcting').css('background-color','#ff0000');
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
+                wrong.play();
+                q++;
             };
             $('#questext').empty();
             $('#endtext').html(function () {
@@ -287,8 +371,8 @@ $(document).ready(function () {
                     };
                 };
             });
-            $('#endtext').fadeIn();
-            $('#whiteboard').css('visibility', 'hidden')
+            $('#whiteboard').css('visibility', 'hidden');
+            setTimeout($('#endtext').fadeIn(),2000);
         }
     });
 
@@ -296,6 +380,7 @@ $(document).ready(function () {
         if (q <= questions) {
             if (q != 1 && Number($('#answercode').text()) == 4) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/bingo.png" alt="bingo">' +
@@ -306,6 +391,7 @@ $(document).ready(function () {
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
             } else if (q != 1 && Number($('#answercode').text()) != 4) {
+                wrong.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/wrong.png" alt="wrong">' +
@@ -315,14 +401,23 @@ $(document).ready(function () {
                 $('.correcting').css('background-color','#ff0000');
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
+                wrong.play();
             };
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             if (q > 1) {
                 q++;
             };
         } else {
+            v.pause();
+            ending.play();
+            $('#timing').empty();
+            $('#timing').css('top','35%');
+            $('#timing').html(
+                '本次作答時間為: <br>' + min + '分' + Math.floor(sec) + '秒'
+            );
             if (q == questions + 1 && Number($('#answercode').text()) == 4) {
                 $('#whiteboard').text(Number($('#whiteboard').text()) + 10);
+                bingo.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/bingo.png" alt="bingo">' +
@@ -334,6 +429,7 @@ $(document).ready(function () {
                 $('#starttext').fadeOut(1000);
                 q++;
             } else if (q == questions + 1 && Number($('#answercode').text()) != 4) {
+                wrong.play();
                 $('#starttext').empty();
                 $('#starttext').html(
                     '<img class="correctness" src="./imgs/wrong.png" alt="wrong">' +
@@ -343,6 +439,8 @@ $(document).ready(function () {
                 $('.correcting').css('background-color','#ff0000');
                 $('#starttext').fadeIn(1000);
                 $('#starttext').fadeOut(1000);
+                wrong.play();
+                q++;
             };
             $('#questext').empty();
             $('#endtext').html(function () {
@@ -376,8 +474,8 @@ $(document).ready(function () {
                     };
                 };
             });
-            $('#endtext').fadeIn();
-            $('#whiteboard').css('visibility', 'hidden')
+            $('#whiteboard').css('visibility', 'hidden');
+            setTimeout($('#endtext').fadeIn(),2000);
         };
     });
 });
