@@ -18,3 +18,69 @@
     width: 50vh;
     margin: auto;
 }
+
+#sol {
+    border-radius: 10px;
+    font-size: 5vh;
+    margin: 3%;
+}
+
+#sol:hover {
+    background-color: gray;
+}
+
+#sol:active {
+    background-color:dimgrey;
+}
+
+#sub {
+    border-radius: 10px;
+    font-size: 5vh;
+    margin-left: 3%;
+}
+
+#sub:hover {
+    background-color: gray;
+}
+
+#sub:active {
+    background-color:dimgrey;
+}
+
+#ques {
+    height: 8vh;
+    font-size: 7vh;
+    width: 20vh;
+    border-radius: 10px;
+}
+
+#backto {
+    border-radius: 10px;
+    font-size: 2vh;
+}
+
+#backto:hover {
+    background-color: gray;
+}
+
+#backto:active {
+    background-color:dimgrey;
+}
+
+#solution {
+    border-radius: 10px;
+    font-size: 5vh;
+    margin-top: 3%;
+}
+
+#solution:hover {
+    background-color: gray;
+}
+
+#solution:active {
+    background-color:dimgrey;
+}
+
+.anssol {
+    font-size: 2.5vh;
+}

@@ -115,6 +115,9 @@ $(document).ready(function () {
                 $('#starttext').fadeIn(750);
                 $('#starttext').fadeOut(750);
                 q++;
+                $('#questext').empty();
+                $('#whiteboard').css('visibility', 'hidden');
+                setTimeout($('#endtext').fadeIn(),2000);
             } else if (q == questions + 1 && Number($('#answercode').text()) != 1) {
                 wrong.play();
                 $('#starttext').empty();
@@ -128,45 +131,85 @@ $(document).ready(function () {
                 $('#starttext').fadeOut(750);
                 wrong.play();
                 q++;
+                $('#questext').empty();
+                $('#whiteboard').css('visibility', 'hidden');
+                setTimeout($('#endtext').fadeIn(),2000);
             };
-            $('#questext').empty();
             $('#endtext').html(function () {
                 if (difficulty == 'easy') {
                     if ($('#whiteboard').text() <= 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你可能要重新回去讀高中了，慢走不送</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你可能要重新回去讀高中了<br>慢走不送</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() <= 70 && $('#whiteboard').text() > 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">沒關係，你可能志不在地科</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">沒關係，你可能志不在地科</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() > 70) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你這種人才不該被埋沒於此啊</h5>'
-                    }
-                    ;
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你這種人才不該被埋沒於此啊</h5>' +
+                            '<button id="sol">看答案</button>'
+                    };
                 } else {
                     if ($('#whiteboard').text() <= 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">沒關係，此處不容君，必有他處容君</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">沒關係，此處不容君<br>必有他處容君</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() <= 70 && $('#whiteboard').text() > 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">什麼時候簽博啊 (x)</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">什麼時候簽博啊 (x)</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() > 70) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你是教授無誤吧</h5>'
-                    }
-                    ;
-                }
-                ;
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你是教授無誤吧</h5>' +
+                            '<button id="sol">看答案</button>'
+                    };
+                };
             });
-            $('#whiteboard').css('visibility', 'hidden');
-            setTimeout($('#endtext').fadeIn(),2000);
-        }
+            $('#answer_back').empty();
+            $('#sol').click(function () {
+                $('#endtext').empty();
+                $('#timing').remove();
+                $('#endtext').html(
+                    '<h3 style="color: whitesmoke">請輸入你想要查詢的題號<br>(例：7)</h3>' +
+                    '<input type="text" id="ques">' +
+                    '<button id="sub">查詢</button>'
+                );
+                $('#whiteboard').css('background-image','none');
+                $('#whiteboard').css('color','black');
+                $('#whiteboard').empty();
+                $('#whiteboard').css('visibility', 'initial');
+                $('#sub').click(function () {
+                    $('#questext').load('./questions/' + difficulty + '/question' + $('#ques').val() + '.xml');
+                    $('#endtext').hide();
+                    $('#whiteboard').html('<button id="backto">回到上一頁</button>');
+                    $('#answer_back').html('<button id="solution">See solution</button>');
+                    $('#backto').click(function () {
+                        $('#endtext').show();
+                        $('#questext').empty();
+                        $('#whiteboard').empty();
+                        $('#answer_back').empty();
+                    });
+                    $('#solution').click(function () {
+                        if ($('#answercode').text() == 1) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#1').text() + '</h3>')
+                        } else if ($('#answercode').text() == 2) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#2').text() + '</h3>')
+                        } else if ($('#answercode').text() == 3) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#3').text() + '</h3>')
+                        } else if ($('#answercode').text() == 4) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#4').text() + '</h3>')
+                        };
+                    });
+                });
+            });
+        };
     });
 
     $('#B').click(function () {
@@ -197,12 +240,11 @@ $(document).ready(function () {
                 $('#starttext').fadeIn(750);
                 $('#starttext').fadeOut(750);
                 wrong.play();
-            }
-            ;
+            };
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             if (q > 1) {
                 q++;
-            }
+            };
         } else {
             v.pause();
             ending.play();
@@ -226,6 +268,9 @@ $(document).ready(function () {
                 $('#starttext').fadeIn(750);
                 $('#starttext').fadeOut(750);
                 q++;
+                $('#questext').empty();
+                $('#whiteboard').css('visibility', 'hidden');
+                setTimeout($('#endtext').fadeIn(),2000);
             } else if (q == questions + 1 && Number($('#answercode').text()) != 2) {
                 wrong.play();
                 $('#starttext').empty();
@@ -239,45 +284,85 @@ $(document).ready(function () {
                 $('#starttext').fadeOut(750);
                 wrong.play();
                 q++;
+                $('#questext').empty();
+                $('#whiteboard').css('visibility', 'hidden');
+                setTimeout($('#endtext').fadeIn(),2000);
             };
-            $('#questext').empty();
             $('#endtext').html(function () {
                 if (difficulty == 'easy') {
                     if ($('#whiteboard').text() <= 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你可能要重新回去讀高中了，慢走不送</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你可能要重新回去讀高中了<br>慢走不送</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() <= 70 && $('#whiteboard').text() > 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">沒關係，你可能志不在地科</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">沒關係，你可能志不在地科</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() > 70) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你這種人才不該被埋沒於此啊</h5>'
-                    }
-                    ;
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你這種人才不該被埋沒於此啊</h5>' +
+                            '<button id="sol">看答案</button>'
+                    };
                 } else {
                     if ($('#whiteboard').text() <= 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">沒關係，此處不容君，必有他處容君</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">沒關係，此處不容君<br>必有他處容君</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() <= 70 && $('#whiteboard').text() > 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">什麼時候簽博啊 (x)</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">什麼時候簽博啊 (x)</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() > 70) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你是教授無誤吧</h5>'
-                    }
-                    ;
-                }
-                ;
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你是教授無誤吧</h5>' +
+                            '<button id="sol">看答案</button>'
+                    };
+                };
             });
-            $('#whiteboard').css('visibility', 'hidden');
-            setTimeout($('#endtext').fadeIn(),2000);
-        }
+            $('#answer_back').empty();
+            $('#sol').click(function () {
+                $('#endtext').empty();
+                $('#timing').remove();
+                $('#endtext').html(
+                    '<h3 style="color: whitesmoke">請輸入你想要查詢的題號<br>(例：7)</h3>' +
+                    '<input type="text" id="ques">' +
+                    '<button id="sub">查詢</button>'
+                );
+                $('#whiteboard').css('background-image','none');
+                $('#whiteboard').css('color','black');
+                $('#whiteboard').empty();
+                $('#whiteboard').css('visibility', 'initial');
+                $('#sub').click(function () {
+                    $('#questext').load('./questions/' + difficulty + '/question' + $('#ques').val() + '.xml');
+                    $('#endtext').hide();
+                    $('#whiteboard').html('<button id="backto">回到上一頁</button>');
+                    $('#answer_back').html('<button id="solution">See solution</button>');
+                    $('#backto').click(function () {
+                        $('#endtext').show();
+                        $('#questext').empty();
+                        $('#whiteboard').empty();
+                        $('#answer_back').empty();
+                    });
+                    $('#solution').click(function () {
+                        if ($('#answercode').text() == 1) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#1').text() + '</h3>')
+                        } else if ($('#answercode').text() == 2) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#2').text() + '</h3>')
+                        } else if ($('#answercode').text() == 3) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#3').text() + '</h3>')
+                        } else if ($('#answercode').text() == 4) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#4').text() + '</h3>')
+                        };
+                    });
+                });
+            });
+        };
     });
 
     $('#C').click(function () {
@@ -308,8 +393,7 @@ $(document).ready(function () {
                 $('#starttext').fadeIn(750);
                 $('#starttext').fadeOut(750);
                 wrong.play();
-            }
-            ;
+            };
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
             if (q > 1) {
                 q++;
@@ -337,6 +421,9 @@ $(document).ready(function () {
                 $('#starttext').fadeIn(750);
                 $('#starttext').fadeOut(750);
                 q++;
+                $('#questext').empty();
+                $('#whiteboard').css('visibility', 'hidden');
+                setTimeout($('#endtext').fadeIn(),2000);
             } else if (q == questions + 1 && Number($('#answercode').text()) != 3) {
                 wrong.play();
                 $('#starttext').empty();
@@ -350,42 +437,85 @@ $(document).ready(function () {
                 $('#starttext').fadeOut(750);
                 wrong.play();
                 q++;
+                $('#questext').empty();
+                $('#whiteboard').css('visibility', 'hidden');
+                setTimeout($('#endtext').fadeIn(),2000);
             };
-            $('#questext').empty();
             $('#endtext').html(function () {
                 if (difficulty == 'easy') {
                     if ($('#whiteboard').text() <= 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你可能要重新回去讀高中了，慢走不送</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你可能要重新回去讀高中了<br>慢走不送</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() <= 70 && $('#whiteboard').text() > 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">沒關係，你可能志不在地科</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">沒關係，你可能志不在地科</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() > 70) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你這種人才不該被埋沒於此啊</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你這種人才不該被埋沒於此啊</h5>' +
+                            '<button id="sol">看答案</button>'
                     };
                 } else {
                     if ($('#whiteboard').text() <= 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">沒關係，此處不容君，必有他處容君</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">沒關係，此處不容君<br>必有他處容君</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() <= 70 && $('#whiteboard').text() > 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">什麼時候簽博啊 (x)</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">什麼時候簽博啊 (x)</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() > 70) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你是教授無誤吧</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你是教授無誤吧</h5>' +
+                            '<button id="sol">看答案</button>'
                     };
                 };
             });
-            $('#whiteboard').css('visibility', 'hidden');
-            setTimeout($('#endtext').fadeIn(),2000);
-        }
+            $('#answer_back').empty();
+            $('#sol').click(function () {
+                $('#endtext').empty();
+                $('#timing').remove();
+                $('#endtext').html(
+                    '<h3 style="color: whitesmoke">請輸入你想要查詢的題號<br>(例：7)</h3>' +
+                    '<input type="text" id="ques">' +
+                    '<button id="sub">查詢</button>'
+                );
+                $('#whiteboard').css('background-image','none');
+                $('#whiteboard').css('color','black');
+                $('#whiteboard').empty();
+                $('#whiteboard').css('visibility', 'initial');
+                $('#sub').click(function () {
+                    $('#questext').load('./questions/' + difficulty + '/question' + $('#ques').val() + '.xml');
+                    $('#endtext').hide();
+                    $('#whiteboard').html('<button id="backto">回到上一頁</button>');
+                    $('#answer_back').html('<button id="solution">See solution</button>');
+                    $('#backto').click(function () {
+                        $('#endtext').show();
+                        $('#questext').empty();
+                        $('#whiteboard').empty();
+                        $('#answer_back').empty();
+                    });
+                    $('#solution').click(function () {
+                        if ($('#answercode').text() == 1) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#1').text() + '</h3>')
+                        } else if ($('#answercode').text() == 2) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#2').text() + '</h3>')
+                        } else if ($('#answercode').text() == 3) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#3').text() + '</h3>')
+                        } else if ($('#answercode').text() == 4) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#4').text() + '</h3>')
+                        };
+                    });
+                });
+            });
+        };
     });
 
     $('#D').click(function () {
@@ -444,6 +574,9 @@ $(document).ready(function () {
                 $('#starttext').fadeIn(750);
                 $('#starttext').fadeOut(750);
                 q++;
+                $('#questext').empty();
+                $('#whiteboard').css('visibility', 'hidden');
+                setTimeout($('#endtext').fadeIn(),2000);
             } else if (q == questions + 1 && Number($('#answercode').text()) != 4) {
                 wrong.play();
                 $('#starttext').empty();
@@ -457,41 +590,84 @@ $(document).ready(function () {
                 $('#starttext').fadeOut(750);
                 wrong.play();
                 q++;
+                $('#questext').empty();
+                $('#whiteboard').css('visibility', 'hidden');
+                setTimeout($('#endtext').fadeIn(),2000);
             };
-            $('#questext').empty();
             $('#endtext').html(function () {
                 if (difficulty == 'easy') {
                     if ($('#whiteboard').text() <= 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你可能要重新回去讀高中了，慢走不送</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你可能要重新回去讀高中了<br>慢走不送</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() <= 70 && $('#whiteboard').text() > 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">沒關係，你可能志不在地科</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">沒關係，你可能志不在地科</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() > 70) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你這種人才不該被埋沒於此啊</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你這種人才不該被埋沒於此啊</h5>' +
+                            '<button id="sol">看答案</button>'
                     };
                 } else {
                     if ($('#whiteboard').text() <= 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">沒關係，此處不容君，必有他處容君</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">沒關係，此處不容君<br>必有他處容君</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() <= 70 && $('#whiteboard').text() > 30) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">什麼時候簽博啊 (x)</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">什麼時候簽博啊 (x)</h5>' +
+                            '<button id="sol">看答案</button>'
                     } else if ($('#whiteboard').text() > 70) {
                         return '<h1 class="titletext" style="color: grey"><b>你在本次做答中</b></h1>' +
                             '<h1 class="titletext" style="color: whitesmoke"><b>一共得到了' + $('#whiteboard').text() + '分</b></h1>' +
-                            '<h5 class="titletext" style="color: #000000">你是教授無誤吧</h5>'
+                            '<h5 class="titletext" style="color: #000000;font-size: 4vh">你是教授無誤吧</h5>' +
+                            '<button id="sol">看答案</button>'
                     };
                 };
             });
-            $('#whiteboard').css('visibility', 'hidden');
-            setTimeout($('#endtext').fadeIn(),2000);
+            $('#answer_back').empty();
+            $('#sol').click(function () {
+                $('#endtext').empty();
+                $('#timing').remove();
+                $('#endtext').html(
+                    '<h3 style="color: whitesmoke">請輸入你想要查詢的題號<br>(例：7)</h3>' +
+                    '<input type="text" id="ques">' +
+                    '<button id="sub">查詢</button>'
+                );
+                $('#whiteboard').css('background-image','none');
+                $('#whiteboard').css('color','black');
+                $('#whiteboard').empty();
+                $('#whiteboard').css('visibility', 'initial');
+                $('#sub').click(function () {
+                    $('#questext').load('./questions/' + difficulty + '/question' + $('#ques').val() + '.xml');
+                    $('#endtext').hide();
+                    $('#whiteboard').html('<button id="backto">回到上一頁</button>');
+                    $('#answer_back').html('<button id="solution">See solution</button>');
+                    $('#backto').click(function () {
+                        $('#endtext').show();
+                        $('#questext').empty();
+                        $('#whiteboard').empty();
+                        $('#answer_back').empty();
+                    });
+                    $('#solution').click(function () {
+                        if ($('#answercode').text() == 1) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#1').text() + '</h3>')
+                        } else if ($('#answercode').text() == 2) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#2').text() + '</h3>')
+                        } else if ($('#answercode').text() == 3) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#3').text() + '</h3>')
+                        } else if ($('#answercode').text() == 4) {
+                            $('#answer_back').html('<h3 class="anssol">Answer: ' + $('#4').text() + '</h3>')
+                        };
+                    });
+                });
+            });
         };
     });
 });

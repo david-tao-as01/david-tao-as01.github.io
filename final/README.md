@@ -7,3 +7,4 @@
 <li>音效來源1: <a href="https://freepd.com">https://freepd.com</a></li>
 <li>音效來源2: <a href="https://taira-komori.jpn.org/monster01tw.html">https://taira-komori.jpn.org/monster01tw.html</a></li>
 <li>利用javascript製作計時器</li>
+<li>利用input製作題目查詢器</li>
