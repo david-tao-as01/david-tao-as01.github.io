@@ -73,8 +73,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'black');
                 $('.correcting').css('background-color','#10ff00');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
             } else if (q != 1 && Number($('#answercode').text()) != 1) {
                 wrong.play();
                 $('#starttext').empty();
@@ -84,8 +84,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'white');
                 $('.correcting').css('background-color','#ff0000');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 wrong.play();
             };
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
@@ -112,8 +112,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'black');
                 $('.correcting').css('background-color','#10ff00');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 q++;
             } else if (q == questions + 1 && Number($('#answercode').text()) != 1) {
                 wrong.play();
@@ -124,8 +124,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'white');
                 $('.correcting').css('background-color','#ff0000');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 wrong.play();
                 q++;
             };
@@ -183,8 +183,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'black');
                 $('.correcting').css('background-color','#10ff00');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
             } else if (q != 1 && Number($('#answercode').text()) != 2) {
                 wrong.play();
                 $('#starttext').empty();
@@ -194,8 +194,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'white');
                 $('.correcting').css('background-color','#ff0000');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 wrong.play();
             }
             ;
@@ -223,8 +223,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'black');
                 $('.correcting').css('background-color','#10ff00');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 q++;
             } else if (q == questions + 1 && Number($('#answercode').text()) != 2) {
                 wrong.play();
@@ -235,8 +235,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'white');
                 $('.correcting').css('background-color','#ff0000');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 wrong.play();
                 q++;
             };
@@ -294,8 +294,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'black');
                 $('.correcting').css('background-color','#10ff00')
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
             } else if (q != 1 && Number($('#answercode').text()) != 3) {
                 wrong.play();
                 $('#starttext').empty();
@@ -305,8 +305,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'white');
                 $('.correcting').css('background-color','#ff0000');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 wrong.play();
             }
             ;
@@ -334,8 +334,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'black');
                 $('.correcting').css('background-color','#10ff00');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 q++;
             } else if (q == questions + 1 && Number($('#answercode').text()) != 3) {
                 wrong.play();
@@ -346,8 +346,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'white');
                 $('.correcting').css('background-color','#ff0000');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 wrong.play();
                 q++;
             };
@@ -402,8 +402,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'black');
                 $('.correcting').css('background-color','#10ff00')
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
             } else if (q != 1 && Number($('#answercode').text()) != 4) {
                 wrong.play();
                 $('#starttext').empty();
@@ -413,8 +413,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'white');
                 $('.correcting').css('background-color','#ff0000');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 wrong.play();
             };
             $('#questext').load('./questions/' + difficulty + '/question' + q.toString() + '.xml');
@@ -441,8 +441,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'black');
                 $('.correcting').css('background-color','#10ff00');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 q++;
             } else if (q == questions + 1 && Number($('#answercode').text()) != 4) {
                 wrong.play();
@@ -453,8 +453,8 @@ $(document).ready(function () {
                 );
                 $('.correcting').css('color', 'white');
                 $('.correcting').css('background-color','#ff0000');
-                $('#starttext').fadeIn(1000);
-                $('#starttext').fadeOut(1000);
+                $('#starttext').fadeIn(750);
+                $('#starttext').fadeOut(750);
                 wrong.play();
                 q++;
             };
